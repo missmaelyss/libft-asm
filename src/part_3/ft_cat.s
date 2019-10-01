@@ -25,14 +25,14 @@ _ft_cat:
 		mov			rsi, rsp
 		mov			rdx, 255
 		syscall
-		cmp			rdx, 255
-		je			.error
+		jc			.error
 .write:	
 		mov			rdx, rax
 		mov			rax, 0x02000004
 		mov			rdi, 1
 		mov			rsi, rsp
         syscall
+		jc			.error
 		add			rsp, 256
 		pop			rdi
 		test		rax, rax
