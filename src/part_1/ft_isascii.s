@@ -14,12 +14,14 @@
     
     section .text
 _ft_isascii:
-        mov     eax, edi                 ; result (rax) initially holds c
-        cmp     eax, 127                 ; is c more than 122 ('z')?
-        jg      false
-        cmp     eax, 0                 ; is c less than 97 ('a')?
-        jge      end
-false:
-        mov     eax, 0                   ; will return 0
-end:
+        mov     rax, rdi                 ; result (rax) initially holds c
+        cmp     rax, 127                 ; is c more than 122 ('z')?
+        jg      .false
+        cmp     rax, 0                 ; is c less than 97 ('a')?
+        jl      .false
+        mov     rax, 1
+        jmp     .end
+.false:
+        xor     rax, rax
+.end:
         ret                             ; return rax

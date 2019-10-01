@@ -14,6 +14,10 @@
 	section	.text
 
 _ft_cat:
+		not			edi
+		cmp			edi, 0
+		je			.end
+		not			edi
 .read:
 		push		rdi
 		sub			rsp, 256
@@ -21,6 +25,8 @@ _ft_cat:
 		mov			rsi, rsp
 		mov			rdx, 255
 		syscall
+		cmp			rdx, 255
+		je			.error
 .write:	
 		mov			rdx, rax
 		mov			rax, 0x02000004
@@ -31,5 +37,9 @@ _ft_cat:
 		pop			rdi
 		test		rax, rax
 		jnz			.read
+		jmp			.end
+.error:
+		add			rsp, 256
+		pop			rdi
 .end:
 		ret

@@ -51,7 +51,6 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.s
 
 clean:
 	@printf "%-50s" "deleting objects..." 
-	@rm -rf $(OBJ)
 	@rm -rf $(OBJ_PATH)
 	@printf "\033[1;32m[OK]\033[0m\n"
 

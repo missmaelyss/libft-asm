@@ -15,11 +15,12 @@
     
     section .text
 _ft_isalpha:
-		push	rbp
+        push    rsp
+        mov     rax, rdi
         call    _ft_isupper
-        cmp     eax, 0
-        jne      .done
+        cmp     rax, 0
+        jne     .done
         call    _ft_islower
 .done:
-		pop		rsp
+        pop     rsp
         ret                             ; return c be in rax

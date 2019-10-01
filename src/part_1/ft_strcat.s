@@ -16,18 +16,19 @@
     section .text
 _ft_strcat:
         push    rdi
-.run:
-        inc     rdi
+.lendest:
         cmp     byte[rdi], 0
-        jne     .run
-.write:
-        cmp     byte[rsi], 0
-        je      .end
+        je     .filldest
+        inc     rdi
+        jmp     .lendest
+.filldest:
         mov     al, byte[rsi]
         mov     byte[rdi], al
+        cmp     byte[rsi], 0
+        je      .end
         inc     rdi
         inc     rsi
-        jnz     .write
+        jmp      .filldest
 .end:
         pop     rdi
         mov     rax, rdi

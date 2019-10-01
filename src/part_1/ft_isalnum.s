@@ -15,10 +15,10 @@
     
     section .text
 _ft_isalnum:
-		push	rbp
+		push	rsp
         call    _ft_isdigit
-        cmp     eax, 0
-        jne      .done
+        cmp     rax, 0
+        jne     .done
         call    _ft_isalpha
 .done:
 		pop		rsp
