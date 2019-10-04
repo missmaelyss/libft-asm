@@ -12,9 +12,12 @@
         section   .text
 _ft_bzero:
         mov ecx, esi
+        cmp ecx, 0
+        je  .end
 .zero:
         mov byte[rdi], 0
         inc rdi
         dec ecx
         jnz .zero
+.end:
         ret

@@ -31,13 +31,13 @@ _ft_puts:
 .null:
         mov       rax, 0x02000004           ; system call for write
         mov       rdi, 1                    ; file handle 1 is stdout
-        mov       rsi, null                 ; address of string to output
+        lea       rsi, [rel null]                 ; address of string to output
         mov       rdx, 6                    ; number of bytes
         syscall 
 .end:
         mov       rax, 0x02000004           ; system call for write
         mov       rdi, 1                    ; file handle 1 is stdout
-        mov       rsi, newline              ; address of string to output
+        lea       rsi, [rel newline]              ; address of string to output
         mov       rdx, 1                    ; number of bytes
         syscall 
         ret

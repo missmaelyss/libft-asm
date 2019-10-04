@@ -18,12 +18,29 @@ _ft_atoi:
         xor     rcx, rcx
         xor     rsi, rsi
         mov     r10, 1
+        jmp     .spaces
+.increment:
+        inc     rdi
+.spaces:
+        cmp     byte[rdi], 32
+        je     .increment
+        cmp     byte[rdi], 9
+        je     .increment
+        cmp     byte[rdi], 10
+        je     .increment
+        cmp     byte[rdi], 11
+        je     .increment
+        cmp     byte[rdi], 12
+        je     .increment
+        cmp     byte[rdi], 13
+        je     .increment
 .sign_less:
         cmp     byte[rdi], '-'
         jne     .sign_plus
         xor     r10, r10
         not     r10
         inc     rdi
+        jmp     .read_number
 .sign_plus:
         cmp     byte[rdi], '+'
         jne     .read_number
