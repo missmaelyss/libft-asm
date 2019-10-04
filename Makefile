@@ -22,7 +22,10 @@ SRC_NAME =	part_1/ft_bzero.s \
 			part_2/ft_strlen.s \
 			part_3/ft_cat.s \
 			bonus/ft_islower.s \
-			bonus/ft_isupper.s
+			bonus/ft_isupper.s \
+			bonus/ft_atoi.s \
+			bonus/ft_strcmp.s \
+			bonus/ft_strchr.s
 
 SRC_PATH = src/
 
