@@ -37,7 +37,7 @@ void	test_ft_bzero(char *av)
 
 void	test_ft_is(char *av)
 {
-	int n;
+	unsigned long n;
 	
 	printf("------------\n| FT_IS... |\n------------\n");
 	n = 0;
@@ -69,7 +69,7 @@ void	test_ft_strcat(char *dest, char *src)
 
 void	test_ft_tolower_toupper(char *av)
 {
-	int n;
+	unsigned long n;
 	
 	printf("------------\n| FT_TO... |\n------------\n");
 	n = 0;

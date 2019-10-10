@@ -22,16 +22,21 @@
  _ft_strdup:
  		push	rdi
  		call	_ft_strlen
+		inc		rax
  		mov		rdi, rax
  		mov		rdx, rax
+		push	rdx
+		sub		rsp, 8
  		call	_malloc
+		add		rsp, 8
+ 		pop		rdx
+ 		pop		rdi
  		test	rax, rax
  		je		.end
- 		push	rax
- 		pop		rdi
  		mov		rsi, rdi
  		mov		rdi, rax
+		push	rax
  		call	_ft_memcpy
-.end:
 		pop		rax
+.end:
 		ret
